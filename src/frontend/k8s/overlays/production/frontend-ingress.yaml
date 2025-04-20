@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+#        http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,22 +16,22 @@ kind: Ingress
 metadata:
   name: frontend-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: bank-of-anthos-ip
-    networking.gke.io/managed-certificates: bank-of-anthos-cert
-    networking.gke.io/v1beta1.FrontendConfig: frontend-frontend-config
+    kubernetes.io/ingress.global-static-ip-name: bank-of-anthos-ip # Keep this if you need a static IP
+    # networking.gke.io/managed-certificates: bank-of-anthos-cert # Remove this line
+    # networking.gke.io/v1beta1.FrontendConfig: frontend-frontend-config # Consider removing if FrontendConfig enforces HTTPS
 spec:
   defaultBackend:
     service:
       name: frontend
       port:
         number: 80
-  rules:
-  - http:
-      paths:
-      - path: /*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
+  # rules: # Remove this entire block
+  # - http:
+  #     paths:
+  #     - path: /*
+  #       pathType: ImplementationSpecific
+  #       backend:
+  #         service:
+  #           name: frontend
+  #           port:
+  #             number: 80
