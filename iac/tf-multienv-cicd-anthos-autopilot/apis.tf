@@ -21,7 +21,6 @@ module "enabled_google_apis" {
 
   activate_apis = [
     "artifactregistry.googleapis.com",
-    "sourcerepo.googleapis.com",
     "certificatemanager.googleapis.com",
     "cloudbuild.googleapis.com",
     "clouddeploy.googleapis.com",
